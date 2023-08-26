@@ -5,11 +5,14 @@ import {useState} from 'react'
 function App() {
   let post = 'Learn Ract'
   let [title, setTitle] = useState(['타자 코트 추천', '맛집 추천', '맛있는 과자 추천'])
+  let [modal, setModal] = useState(false)
   console.log(title[0])
   let [like, setLike] = useState(0)
   const updateLike = () => {
-    setLike(like++)
+    setLike(like += 1)
   }
+  
+  let count = 0
   return (
     <div className="App">
       <nav className="black-nav">
@@ -23,7 +26,9 @@ function App() {
         <h4>{title[1]}</h4>
         <p>2월 17일 발행</p>
       </div>
-      <div className="list">
+      <div className="list" onClick={() => {
+        setModal(!modal)
+      }}>
         <h4>{title[2]}</h4>
         <p>2월 17일 발행</p>
       </div>
@@ -41,8 +46,23 @@ function App() {
         setTitle(copy)
       }
       }>정렬하기</button>
+      {modal === true ? 
+      <Modal />
+      :
+      null}
     </div>
   );
 }
+
+const Modal = () => {
+  return (
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  )
+}
+
 
 export default App;

@@ -1,4 +1,4 @@
-# Learnreact
+## React 
 
 <h1>Set React</h1>
 
@@ -32,12 +32,31 @@ let [title, setTitle] = useState('recommend man's coat')
 1. event handler 
 onClick( function )
 onChange( function )
+
 2. let [title, setTitle] = useState('Hello useState')
 first is variable! and second is function that change state
 so how to change useState ? 
 onClick(()=>{ return setTitle(title = 'How to change useState?' )})
+
 3. How to change array state
 If state is array or object we must make shallow copy and change!
 To change array, we use spread operator.
 Spread operator is ... and remove bracket!
+
+<h1>Component</h1>
+
+### How to make Component
+1. Make function
+2. Put html in return()
+3. <Function></Function> <- first text is must write Uppercase
+4. Can make <Function/>
+
+
+<h1> Dynamic UI creation steps </h1>
+
+1. Create HTML & CSS 
+2. Save the current state of the UI as state
+3. Write what the ui will look like depending on the state
+
+
 
