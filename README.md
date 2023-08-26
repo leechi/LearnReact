@@ -1,6 +1,6 @@
 ## React 
 
-<h1>Set React</h1>
+<h1> Set React</h1>
 
 1. npx create-react-app project-name || . <- dot's mean is current path installing
 
@@ -24,9 +24,9 @@ if i change font-size i must input fontSize
 <h1>useState</h1>
 
 ### How to make useState
-1. import {useState} from 'react'
+1. `import {useState} from 'react'`
 2. Destructuring Syntax 
-let [title, setTitle] = useState('recommend man's coat')
+`let [title, setTitle] = useState('recommend man's coat')`
 
 ### How to change useState
 1. event handler 
@@ -36,7 +36,7 @@ onChange( function )
 2. let [title, setTitle] = useState('Hello useState')
 first is variable! and second is function that change state
 so how to change useState ? 
-onClick(()=>{ return setTitle(title = 'How to change useState?' )})
+`onClick(()=>{ return setTitle(title = 'How to change useState?' )})`
 
 3. How to change array state
 If state is array or object we must make shallow copy and change!
@@ -58,5 +58,13 @@ Spread operator is ... and remove bracket!
 2. Save the current state of the UI as state
 3. Write what the ui will look like depending on the state
 
+<h1>Map function</h1>
 
+### How to use map
+`array.map((data, i) => {}`
+map have two parameter.
+first is array's data (ex. let array = [1,2] data is 1, 2)  
+second is index 
+### warning
+key={i}
 
