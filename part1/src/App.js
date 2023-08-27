@@ -6,7 +6,8 @@ function App() {
   let post = 'Learn Ract'
   let [title, setTitle] = useState(['타자 코트 추천', '맛집 추천', '맛있는 과자 추천'])
   let [modal, setModal] = useState(false)
-  let [like, setLike] = useState([0,0,0])
+  let [like, setLike] = useState([0, 0, 0])
+  let [change, setChange] = useState(0)
   const updateLike = () => {
     setLike(like +=1)
   }
@@ -18,14 +19,15 @@ function App() {
       </nav>
       {title.map((data, i) => {
         return (
-          <div key={i} className="list" onClick={() => {
-        setModal(!modal) 
-      }} >
+          <div key={i} className="list" >
             <h4 onClick={() => {
+              setModal(true) 
+              setChange(i)
+            }}>{data} <span onClick={() => {
               let copy = [...like]
               copy[i] = copy[i] + 1
               setLike(copy)
-            }}>{data} <span>❤️</span> {like[i]}</h4>
+            }}>❤️</span> {like[i]}</h4>
         <p>2월 17일 발행</p>
       </div>
         )
@@ -46,19 +48,26 @@ function App() {
       }
       }>정렬하기</button>
       {modal === true ? 
-      <Modal />
+        <Modal change={change}  setTitle={setTitle} title={title} />
       :
-      null}
+        null}
+      
+      
     </div>
   );
 }
 
-const Modal = () => {
+const Modal = (props) => {
   return (
     <div className="modal">
-      <h4>제목</h4>
+      <h4>{ props.title[props.change] }</h4>
       <p>날짜</p>
       <p>상세내용</p>
+      <button onClick={() => {
+        let copy = [...props.title]
+        copy[0] = '타잔 코트 추천'
+        props.setTitle(copy)
+      }}>글수정</button>
     </div>
   )
 }

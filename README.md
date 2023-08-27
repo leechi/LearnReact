@@ -68,3 +68,19 @@ second is index
 ### warning
 key={i}
 
+<h1>Props</h1>
+### How to transmit parents 
+
+1. <Child-Component naming={state-name}>
+
+2. `const Modal(props) => { return ({props.title})}`
+
+3. state function that change state is same 
+`props.setTitle`
+
+🚨 trasmiting is only parents -> child
+not child -> parents not sibling -> sibling 🚨
+
+
+
+
