@@ -71,7 +71,7 @@ key={i}
 <h1>Props</h1>
 ### How to transmit parents 
 
-1. <Child-Component naming={state-name}>
+1. `<Child-Component naming={state-name}>`
 
 2. `const Modal(props) => { return ({props.title})}`
 
@@ -80,6 +80,12 @@ key={i}
 
 🚨 trasmiting is only parents -> child
 not child -> parents not sibling -> sibling 🚨
+
+<h1>onChange</h1>
+### How to use eventHandler(onChange)
+
+1. `onChange={(e)=>{console.log(e.target.value)}}`
+
 
 
 
