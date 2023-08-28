@@ -1,4 +1,4 @@
-## React 
+# part1
 
 <h1> Set React</h1>
 
@@ -86,6 +86,41 @@ not child -> parents not sibling -> sibling 🚨
 ### How to use eventHandler(onChange)
 
 1. `onChange={(e)=>{console.log(e.target.value)}}`
+
+
+# part2
+<h1>React Bootstrap</h1>
+
+### How to use Bootstrap with React
+
+1. `import 'bootstrap/dist/css/bootstrap.min.css';`
+2. `import { Button , Container, Navbar, Nav } from 'react-bootstrap';`
+3. `<Navbar bg="dark" data-bs-theme="dark">`
+
+
+<h1>image</h1>
+Put image files in public folder
+and input
+{process.env.PUBLIC_URL + 'img-route'}
+
+<h1>import export</h1>
+
+if code is long we must divide code!
+so we use import and export
+
+### How to use import and export
+
+#### import
+input the file that we want to show page 
+`import data from './data';`
+
+#### export
+1. make the file (ex. data.js )
+2. `let data =[...]`
+3. and export!
+`export default data`
+4. if you want to add second variable you must make export
+`export {val1, val2}`
 
 
 
