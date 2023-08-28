@@ -42,6 +42,7 @@ so how to change useState ?
 If state is array or object we must make shallow copy and change!
 To change array, we use spread operator.
 Spread operator is ... and remove bracket!
+but it is array! 
 
 <h1>Component</h1>
 

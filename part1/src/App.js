@@ -32,7 +32,7 @@ function App() {
               setLike(copy)
             }}>❤️</span> {like[i]}</h4>
             <p>{day[i]}</p>
-            <button onClick={(e) => {
+            <button onClick={() => {
               let copy = [...title]
               copy.splice(i,1)
               setTitle(copy)
