@@ -123,6 +123,51 @@ input the file that we want to show page
 `export {val1, val2}`
 
 
+<h1>React Router</h1>
+모달창을 url 만들 수 잇다.
+
+#### set
+npm install react-router-dom@6
+
+```
+<Routes>
+    <Route path="/" element={<div>메인페이지임</div>} ></Route>
+    <Route path="/detail" element={<div>상세페이지임</div>} ></Route>
+    <Route path="/about" element={<div>어바웃페이지임</div>}></Route>
+</Routes>
+```
+
+### navigate, nested routes, outlet
+
+1. navigate
+
+2. nested routes
+nested's mean is tag in tag
+```
+<Route path="/about" element={ <About/> } > 
+    <Route path="member" element={<div>member</div>} />
+    <Route path="location" element={<div>location</div>} />
+</Route>
+```
+3. outlet
+outlet is path position
+```
+<div>
+    <h4>inc</h4>
+    <Outlet></Outlet> <- this is <Route path="location" element={<div>location</div>} />
+</div>
+```
 
 
+if you want to make 404 page
+`<Route path="*" element={ <div>404</div> } />`
+* <- every routes
+
+### parameter
+
+0. `<Route path="/detail/:id" element={<Detail shoes={shoes} />} ></Route>`
+
+1. `import { useParams } from 'react-router-dom'`
+
+2. `let { id } = useParams()`
 

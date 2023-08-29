@@ -4,36 +4,73 @@ import './App.css';
 import bg from './profile.jpeg'
 import { Button , Container, Navbar, Nav } from 'react-bootstrap';
 import data from './data';
-import{ useState} from 'react'
-
+import { useState } from 'react'
+import {Routes,Route, Link, useNavigate, Outlet} from 'react-router-dom'
+import Detail from './pages/Detail';
+import styled from 'styled-components'
 
 function App() {
   let [shoes] = useState(data)
+  let navigate = useNavigate()
   
   return (
     <div className="App">
+      
+
+
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">1</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/') }}>홈</Nav.Link>
+            {/* navigate(-1) 하면 뒤로가기 */}
+            <Nav.Link onClick={() => { navigate('/detail') }}>상세페이지</Nav.Link>
+            
           </Nav>
+
         </Container>
       </Navbar>
-      <img className='main-bg' src={process.env.PUBLIC_URL + '/bg.png'} /> 
-      <div className="container">
-        <div className="row">
-          
-          {/* props 사용법 작명={state명} */}
-          {shoes.map((data,i) => (
-            <Product shoes={shoes[i]} number={i} />
-          ))}
-        </div>
-        </div>
+
+
+      
+      
+      <Routes>
+        <Route path="/" element={<div>
+          <img className='main-bg' src={process.env.PUBLIC_URL + '/bg.png'} /> 
+            <div className="container">
+              <div className="row">
+                
+                {/* props 사용법 작명={state명} */}
+                {shoes.map((data,i) => (
+                  <Product shoes={shoes[i]} number={i} />
+                ))}
+              </div>
+            </div>
+        </div>} ></Route>
+
+        
+        
+        {/* nested routes */}
+        <Route path="/about" element={ <About/> } > 
+          <Route path="member" element={<div>멤버임</div>} />
+          <Route path="location" element={<div>위치정보임</div>} />
+        </Route>
+
+        <Route path="/detail/:id" element={<Detail shoes={shoes} />} ></Route>
+       
+
+      </Routes>
     </div>
   );
+}
+
+const About = () => {
+  return (
+    <div>
+      <h4>회사정보임</h4>
+      <Outlet></Outlet>
+    </div>
+  )
 }
 
 const Product = (props) => {
