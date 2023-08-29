@@ -171,3 +171,78 @@ if you want to make 404 page
 
 2. `let { id } = useParams()`
 
+
+<h1> Lifecycle & useEffect </h1>
+
+Components have a life
+there are 3 lives
+
+first is mount
+second is update
+last is unmount
+
+class Component is
+```
+class leechi extends React.Component {
+  componentDidMount(){
+    //Code to be executed after the component is loaded
+  }
+  componentDidUpdate(){
+    // Code to be executed after the component is updated
+  }
+  componentWillUnmount(){
+    // Code to be executed after the component is deleted
+  }
+}
+```
+
+But recently useEffect is used.
+
+### How to use useEffect
+
+1. import 
+`import {useEffect} from 'react';`
+2. `useEffect(()=>{Code (mount & update) });`
+
+3. Why use useEffect? 
+To make html rendering more efficient
+- difficult arithmetic
+- Retrieving data from server
+- timer
+
+
+
+### final cleanup
+1. Run code on every re-rendering
+```
+useEffect(()=>{ code })
+```
+2. [] Run only once when component is mounted
+```
+useEffect(()=>{ code }, [])
+```
+3. Always run before code inside useEffect (clean up function)
+```
+useEffect(()=>{
+  return ()=>{
+    code
+  }
+}, [])
+```
+
+4. Run once when component is unmounted
+```
+useEffect(()=>{ 
+  return ()=>{
+    code
+  }
+}, [])
+```
+
+5. Run only when state changes
+```
+useEffect(()=>{ 
+  code
+}, [state])
+```
+
