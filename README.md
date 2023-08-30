@@ -263,3 +263,36 @@ get -> then -> catch
 
 #### How to make a POST request
 `axios.post('URL', {name : 'leechi'}).then()`
+
+
+<h1>Redux</h1>
+#### Redux can allows Components to share state without props
+
+### Redux Set
+
+1. `npm install @reduxjs/toolkit react-redux`
+🚨 react, react-dom must be searched as 18.1.x or higher🚨
+2. make store.js file and put the this code
+```
+import { configureStore } from '@reduxjs/toolkit'
+
+export default configureStore({
+  reducer: { }
+}) 
+```
+3. go to the index.js file and import and put code
+```
+import { Provider } from "react-redux";
+import store from './store.js'
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
+); 
+```
