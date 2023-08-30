@@ -8,16 +8,14 @@ import { useState } from 'react'
 import {Routes,Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './pages/Detail';
 import styled from 'styled-components'
+import axios from 'axios'
 
 function App() {
-  let [shoes] = useState(data)
+  let [shoes, setShoes] = useState(data)
+  let [count, setCount] = useState(2)
   let navigate = useNavigate()
-  
   return (
     <div className="App">
-      
-
-
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
@@ -29,11 +27,7 @@ function App() {
           </Nav>
 
         </Container>
-      </Navbar>
-
-
-      
-      
+      </Navbar>    
       <Routes>
         <Route path="/" element={<div>
           <img className='main-bg' src={process.env.PUBLIC_URL + '/bg.png'} /> 
@@ -45,7 +39,27 @@ function App() {
                   <Product shoes={shoes[i]} number={i} />
                 ))}
               </div>
-            </div>
+          </div>
+          {/* 리엑트에서는 거의 ajax로 서버와 통신한다. */}
+          
+          <button onClick={() => {
+
+            setCount(count + 1)
+            console.log(count)
+            axios.get( `https://codingapple1.github.io/shop/data${count}.json` )
+              .then((result) => {
+                
+                let data = [...shoes,...result.data]  
+                setShoes(data)
+              
+              }).catch(() => {
+                alert('더이상 없슴둥')
+                console.log(
+                  'connection failed'
+
+              )
+            })
+          }}>버튼</button>
         </div>} ></Route>
 
         

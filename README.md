@@ -246,3 +246,20 @@ useEffect(()=>{
 }, [state])
 ```
 
+
+<h1> Server communication with React </h1>
+
+### How to communicate server with React
+#### axios
+`npm i axios`
+`import axios from 'axios'`
+`axios.get('url').then((result) => { }).catch(() => { connection failed })`
+axios.get('url-route').then().catch()
+get -> then -> catch
+ 
+
+ #### Sending multiple AJAX requests at the same time
+`Promise.all([ axios.get('/url1'), axios.get('/url2)]).then().catch()`
+
+#### How to make a POST request
+`axios.post('URL', {name : 'leechi'}).then()`
