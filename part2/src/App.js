@@ -9,11 +9,14 @@ import {Routes,Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './pages/Detail';
 import styled from 'styled-components'
 import axios from 'axios'
+import Cart from './pages/cart';
 
 function App() {
   let [shoes, setShoes] = useState(data)
   let [count, setCount] = useState(2)
   let navigate = useNavigate()
+  
+
   return (
     <div className="App">
       <Navbar bg="dark" data-bs-theme="dark">
@@ -72,7 +75,7 @@ function App() {
 
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} ></Route>
        
-
+          <Route path="/cart" element={<Cart></Cart>}></Route>
       </Routes>
     </div>
   );

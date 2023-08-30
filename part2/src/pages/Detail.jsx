@@ -5,7 +5,7 @@ const Detail = (props) => {
     let [time, setTime] = useState(true)
     let [alert, setAlert]= useState('')
     let [tap, setTap] = useState(0)
-
+    let [fade2, setFade2] = useState('')
 
     useEffect(() => {
         let a = setTimeout(() => {
@@ -21,7 +21,14 @@ const Detail = (props) => {
     
     useEffect(() => {
         if (isNaN(alert) == true) { console.log('그러지마세요') }
-    },[alert])
+    }, [alert])
+    
+    useEffect(() => {
+        setFade2('end')
+        return () => {
+            setFade2('')
+        }
+    },[])
 
     
     let { id } = useParams()
@@ -31,7 +38,7 @@ const Detail = (props) => {
     })
     return (
         
-        <div className="container">
+        <div className={"container start" + fade2}>
             <input onChange={(e)=>{setAlert(e.target.value)}}></input>
             <div>{alert}</div>
         
@@ -67,15 +74,34 @@ const Detail = (props) => {
     )
 }
 
-const TabContent = (props) => {
-    if (props.tap == 0) {
-        return <div>내용0</div>
-} if (props.tap == 1) {
-     return <div>내용1</div> 
+const TabContent = ({ tap }) => {
+
+    let [fade, setFade] = useState('')
+    
+    useEffect(() => {
+        setTimeout(()=>{setFade('end')}, 100)
+        
+        return () => {
+            setFade('')
+        }
+    },[tap])
+
+    return(<div className={`start ${fade}`}>
+       {[<div>내용0</div>, <div>내용1</div>,<div>내용2</div>][tap]}
+        </div>
+        )
 }
-if (props.tap == 2) {
-    return <div>내용2</div> 
-}
-}
+
+// props쓰기 귀찮으면 파라미터에 중괄호 
+// const TabContent = ({tap}) => {
+//     if (tap == 0) {
+//         return <div>내용0</div>
+// } if (tap == 1) {
+//      return <div>내용1</div> 
+// }
+// if (tap == 2) {
+//     return <div>내용2</div> 
+// }
+// }
 
 export default Detail
