@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-
+import {Nav} from 'react-bootstrap'
 const Detail = (props) => {
     let [time, setTime] = useState(true)
     let [alert, setAlert]= useState('')
-
+    let [tap, setTap] = useState(0)
 
 
     useEffect(() => {
@@ -48,9 +48,34 @@ const Detail = (props) => {
                     <p>{ findproduct.price}</p>
             <button className="btn btn-danger">주문하기</button> 
             </div>
-        </div>
+            </div>
+        <Nav variant="tabs"  defaultActiveKey="link0">
+            <Nav.Item>
+            <Nav.Link onClick={()=>{setTap(0)}} eventKey="link0">버튼0</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+            <Nav.Link onClick={()=>{setTap(1)}} eventKey="link1">버튼1</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+            <Nav.Link onClick={()=>{setTap(2)}} eventKey="link2">버튼2</Nav.Link>
+            </Nav.Item>
+            </Nav>
+            <TabContent tap={tap} />
+        
+        
         </div> 
     )
+}
+
+const TabContent = (props) => {
+    if (props.tap == 0) {
+        return <div>내용0</div>
+} if (props.tap == 1) {
+     return <div>내용1</div> 
+}
+if (props.tap == 2) {
+    return <div>내용2</div> 
+}
 }
 
 export default Detail
