@@ -252,10 +252,21 @@ useEffect(()=>{
 ### How to communicate server with React
 #### axios
 `npm i axios`
+<br>
 `import axios from 'axios'`
+<br>
 `axios.get('url').then((result) => { }).catch(() => { connection failed })`
+<br>
 axios.get('url-route').then().catch()
 get -> then -> catch
+
+
+#### fetch
+
+`fetch('url').then(response => { return response.json() }).then(data => { })`
+<br>
+ first's then is For data parser
+ second's then uses data.
  
 
  #### Sending multiple AJAX requests at the same time
