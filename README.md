@@ -127,8 +127,10 @@ input the file that we want to show page
 모달창을 url 만들 수 잇다.
 
 #### set
-npm install react-router-dom@6
-
+`npm install react-router-dom@6`
+<br>
+`import { Routes, Route, Link } from 'react-router-dom'`
+<br>
 ```
 <Routes>
     <Route path="/" element={<div>메인페이지임</div>} ></Route>
