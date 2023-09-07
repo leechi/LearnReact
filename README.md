@@ -139,6 +139,17 @@ input the file that we want to show page
 </Routes>
 ```
 
+##### index.js
+`import {BrowserRouter} from 'react-router-dom';`
+
+```
+<BrowserRouter>
+  <App />
+</BrowserRouter>
+```
+
+
+
 ### navigate, nested routes, outlet
 
 1. navigate
@@ -172,6 +183,8 @@ if you want to make 404 page
 1. `import { useParams } from 'react-router-dom'`
 
 2. `let { id } = useParams()`
+
+
 
 
 <h1> Lifecycle & useEffect </h1>
